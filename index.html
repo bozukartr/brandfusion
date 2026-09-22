@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0a0b0e">
+  <meta name="description" content="BrandFusion — marka ve ürün DNA'sını birleştiren procedural image prompt generator.">
+  <title>BrandFusion</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="panel control-panel">
+      <header class="hero">
+        <div class="brand-mark"><span class="brand-dot"></span>BRANDFUSION</div>
+        <h1>Brand × Product<br><span>Prompt Engine</span></h1>
+        <p>Bir marka ile ürünü seç. Sistem marka DNA’sını ürün anatomisine map ederek üretilebilir bir görsel prompt derler.</p>
+      </header>
+
+      <div class="controls">
+        <div class="select-grid">
+          <label class="field">
+            <span>MARKA</span>
+            <select id="brandSelect"></select>
+          </label>
+          <label class="field">
+            <span>ÜRÜN</span>
+            <select id="productSelect"></select>
+          </label>
+        </div>
+        <div class="select-grid triple">
+          <label class="field">
+            <span>FUSION</span>
+            <select id="modeSelect">
+              <option value="conservative">Conservative</option>
+              <option value="balanced" selected>Balanced</option>
+              <option value="experimental">Experimental</option>
+              <option value="visionary">Visionary</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>SAHNE</span>
+            <select id="sceneSelect">
+              <option value="studio" selected>Studio</option>
+              <option value="campaign">Campaign</option>
+              <option value="editorial">Editorial</option>
+              <option value="exploded">Exploded</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>ORAN</span>
+            <select id="ratioSelect">
+              <option>1:1</option><option>4:5</option><option>3:2</option><option>16:9</option><option>9:16</option>
+            </select>
+          </label>
+        </div>
+        <div class="action-row">
+          <button id="randomButton" class="primary">RANDOMIZE + FUSE</button>
+          <button id="generateButton">GENERATE</button>
+          <button id="variantButton">NEW VARIANT</button>
+        </div>
+      </div>
+
+      <section class="fusion-card">
+        <div class="fusion-meta"><span>MIXING CORE</span><span id="seedLabel">SEED —</span></div>
+        <div id="fusionStage" class="fusion-stage">
+          <div class="mesh"></div>
+          <div class="energy-ring ring-a"></div>
+          <div class="energy-ring ring-b"></div>
+          <div class="orb"></div>
+          <article id="brandNode" class="node brand-node"><small>BRAND</small><strong id="brandNodeText">Apple</strong></article>
+          <article id="productNode" class="node product-node"><small>PRODUCT</small><strong id="productNodeText">Sneaker</strong></article>
+          <div id="fusionResult" class="fusion-result"><small>FUSION</small><strong id="fusionResultText">Apple × Sneaker</strong></div>
+        </div>
+        <div class="meters">
+          <div><span>BRAND DNA</span><strong id="dnaStat">Minimal / Precise</strong></div>
+          <div><span>FUNCTION</span><strong id="functionStat">Ergonomic / Credible</strong></div>
+          <div><span>MATERIAL</span><strong id="materialStat">Mapped</strong></div>
+          <div><span>REALISM</span><strong id="realismStat">82%</strong></div>
+        </div>
+      </section>
+
+      <section class="insight">
+        <span class="section-label">FUSION INSIGHT</span>
+        <h2 id="questionText">Apple bir sneaker üretseydi?</h2>
+        <p id="summaryText"></p>
+        <div id="strategyList" class="strategy-list"></div>
+      </section>
+    </section>
+
+    <section class="panel output-panel">
+      <header class="output-head">
+        <div><span class="section-label">COMPILED OUTPUT</span><h2>Image Prompt</h2></div>
+        <button id="copyButton" class="copy-button">COPY</button>
+      </header>
+      <div id="chips" class="chips"></div>
+      <textarea id="promptOutput" spellcheck="false" readonly></textarea>
+      <footer class="output-footer"><span id="statusText">READY</span><span>NO AI · PROCEDURAL ENGINE</span></footer>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
